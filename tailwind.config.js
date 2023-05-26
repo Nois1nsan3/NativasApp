@@ -5,8 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        caveat: ["Caveat", 'cursive'],
+        marvel: ["Marvel", 'sans-serif'],
+        mplus: ["'M PLUS 1 Code'", 'sans-serif'],
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
-
+}

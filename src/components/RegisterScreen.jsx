@@ -9,7 +9,7 @@ const RegisterScreen = () => {
     return (
         // contendor principal
         <div className="flex h-screen w-full ">
-            <picture className="w-1/2 h-full filtro">
+            <picture className="w-2/5 h-full filtro">
                 <img
                     src={registerImg}
                     alt="Register"
@@ -17,22 +17,24 @@ const RegisterScreen = () => {
                 />
             </picture>
             {/* contenedor del formulario */}
-            <div className="w-1/2 h-full flex justify-center items-center">
+            <div className="w-3/5 h-full flex justify-center items-center">
                 <form
                     onSubmit={handleSubmit}
-                    className="w-4/5 h-auto flex flex-col items-center gap-2"
+                    className="w-3/5 h-auto flex flex-col items-center justify-center gap-2"
                 >
                     {/* contenedor del titulo */}
-                    <div className="text-violet-700 font-bold font-caveat text-center text-3xl my-8 txt-shadow">
-                        <h1>COMIENZA TOTALMENTE GRATIS</h1>
-                        <h2>
+                    <div className="text-violet-700  font-caveat text-center my-8 txt-shadow flex flex-col gap-5">
+                        <h1 className="font-bold text-5xl">
+                            COMIENZA TOTALMENTE GRATIS
+                        </h1>
+                        <h2 className="text-xl">
                             INGRESA LA SIGUIENTE INFORMACIÓN PARA REGISTRARTE
                         </h2>
                     </div>
                     {/* contenedor de los inputs */}
                     <div className="w-full flex flex-col items-center gap-2.5">
                         {/* inputs nombre y apellido*/}
-                        <div className="flex w-full  gap-2">
+                        <div className="flex w-full  gap-2.5">
                             <input
                                 className="w-1/2 font-mplus font-bold rounded-lg border-2 border-violet-600 p-2 "
                                 type="text"
@@ -47,7 +49,7 @@ const RegisterScreen = () => {
                             />
                         </div>
                         {/* inputs correo y contraseña */}
-                        <div className="flex flex-col align-cener w-full my-2 gap-2">
+                        <div className="flex flex-col align-cener w-full my-2 gap-4">
                             <input
                                 className="w-full  font-mplus font-bold rounded-lg border-2 border-violet-600 p-2.5"
                                 type="email"

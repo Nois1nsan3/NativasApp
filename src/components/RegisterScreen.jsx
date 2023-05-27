@@ -1,44 +1,87 @@
 import React from "react";
-import registerImg from '../assets/Roller_Form.png';
+import registerImg from "../assets/Roller_Form.png";
 
 const RegisterScreen = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-  }
-
-  return (
-    <div style={{display: 'flex', height: '100vh', backgroundColor: '#F0F0F0'}}>
-      <div style={{width: '40%', height: '100%'}}>
-        <img src={registerImg} alt="Register" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
-      </div>  
-      <div style={{width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-        <form onSubmit={handleSubmit} style={{width: '80%', height: '80%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', fontFamily: 'Arial'}}>
-          <div>
-            <h1 style={{fontSize: '3em', fontWeight: 'bold', color: '#333'}}>COMIENZA TOTALMENTE GRATIS</h1>
-            <h2 style={{color: '#777'}}>INGRESA LA SIGUIENTE INFORMACIÓN PARA REGISTRARTE</h2>
-          </div>
-          <div style={{width: '100%'}}>
-            <div style={{display: 'flex', justifyContent: 'space-between', width: '100%', marginBottom: '20px'}}>
-              <input style={{width: '45%', padding: '10px', borderRadius: '10px', border: 'none', boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)'}} type="text" placeholder="Nombre" required />
-              <input style={{width: '45%', padding: '10px', borderRadius: '10px', border: 'none', boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)'}} type="text" placeholder="Apellido" required />
+    return (
+        // contendor principal
+        <div className="flex h-screen w-full ">
+            <picture className="w-2/5 h-full filtro">
+                <img
+                    src={registerImg}
+                    alt="Register"
+                    className="w-full h-full "
+                />
+            </picture>
+            {/* contenedor del formulario */}
+            <div className="w-3/5 h-full flex justify-center items-center">
+                <form
+                    onSubmit={handleSubmit}
+                    className="w-3/5 h-auto flex flex-col items-center justify-center gap-2"
+                >
+                    {/* contenedor del titulo */}
+                    <div className="text-violet-700  font-caveat text-center my-8 txt-shadow flex flex-col gap-5">
+                        <h1 className="font-bold text-5xl">
+                            COMIENZA TOTALMENTE GRATIS
+                        </h1>
+                        <h2 className="text-xl">
+                            INGRESA LA SIGUIENTE INFORMACIÓN PARA REGISTRARTE
+                        </h2>
+                    </div>
+                    {/* contenedor de los inputs */}
+                    <div className="w-full flex flex-col items-center gap-2.5">
+                        {/* inputs nombre y apellido*/}
+                        <div className="flex w-full  gap-2.5">
+                            <input
+                                className="w-1/2 font-mplus font-bold rounded-lg border-2 border-violet-600 p-2 "
+                                type="text"
+                                placeholder="Nombre"
+                                required
+                            />
+                            <input
+                                className="w-1/2 font-mplus font-bold rounded-lg border-2 border-violet-600 p-2.5 "
+                                type="text"
+                                placeholder="Apellido"
+                                required
+                            />
+                        </div>
+                        {/* inputs correo y contraseña */}
+                        <div className="flex flex-col align-cener w-full my-2 gap-4">
+                            <input
+                                className="w-full  font-mplus font-bold rounded-lg border-2 border-violet-600 p-2.5"
+                                type="email"
+                                placeholder="Correo electrónico"
+                                required
+                            />
+                            <input
+                                className="w-full  font-mplus font-bold rounded-lg border-2 border-violet-600 p-2.5"
+                                type="password"
+                                placeholder="Contraseña"
+                                required
+                            />
+                        </div>
+                    </div>
+                    {/* input checkbox */}
+                    <div className="w-full">
+                        <label className="font-mplus font-bold">
+                            <input type="checkbox" required /> Acepto los
+                            términos y condiciones del servicio
+                        </label>
+                    </div>
+                    {/* boton de registro */}
+                    <button
+                        className="btn-indigo w-4/5 my-5 py-5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-bold rounded-lg border-black"
+                        type="submit"
+                    >
+                        CREAR UNA CUENTA
+                    </button>
+                </form>
             </div>
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginBottom: '20px'}}>
-              <input style={{width: '100%', padding: '10px', borderRadius: '10px', border: 'none', boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)'}} type="email" placeholder="Correo electrónico" required />
-              <input style={{width: '100%', marginTop: '20px', padding: '10px', borderRadius: '10px', border: 'none', boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)'}} type="password" placeholder="Contraseña" required />
-            </div>
-          </div>
-          <div style={{alignSelf: 'flex-start', marginBottom: '10px'}}>
-            <label style={{fontSize: '0.9em'}}>
-              <input type="checkbox" required /> Acepto los términos y condiciones del servicio
-            </label>
-          </div>
-          <button style={{marginTop: '20px', padding: '10px', borderRadius: '10px', border: 'none', boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', backgroundColor: '#007BFF', color: 'white', cursor: 'pointer'}} type="submit">CREAR UNA CUENTA</button>
-        </form>
-      </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default RegisterScreen;

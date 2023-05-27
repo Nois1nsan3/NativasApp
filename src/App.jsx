@@ -1,13 +1,12 @@
-import Login from './components/Login'
-import RegisterScreen from './components/RegisterScreen'
-
+// import Login from './components/Login'
+import RegisterScreen from "./components/RegisterScreen";
 
 function App() {
-  return (
-    <div>
-      <Login />
-    </div>
-  );
+    return (
+        <div>
+            <RegisterScreen />
+        </div>
+    );
 }
 
 export default App;

@@ -1,12 +1,13 @@
-// import Login from './components/Login'
-import RegisterScreen from "./components/RegisterScreen";
+import Login from './components/Login'
+import { RegisterScreen } from './components/RegisterScreen'
 
 function App() {
-    return (
-        <div>
-            <RegisterScreen />
-        </div>
-    );
+  return (
+    <div>
+      <Login />
+      <RegisterScreen />
+    </div>
+  )
 }
 
-export default App;
+export default App

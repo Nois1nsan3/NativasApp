@@ -1,4 +1,4 @@
-export function Formulario () {
+export function FormularioRegistro () {
   return (
     <form className='w-3/5 h-full flex flex-col items-center justify-center gap-2 overflow-hidden'>
       {/* contenedor del titulo */}
@@ -56,5 +56,6 @@ export function Formulario () {
         CREAR UNA CUENTA
       </button>
     </form>
+
   )
 }

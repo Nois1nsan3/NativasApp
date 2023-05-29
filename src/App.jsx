@@ -1,7 +1,8 @@
+import React from 'react'
 import Login from './components/Login'
 import { RegisterScreen } from './components/RegisterScreen'
 
-function App() {
+function App () {
   return (
     <div>
       <Login />

@@ -1,13 +1,12 @@
 import { Layout } from '../../hoc/layout/Layout'
-import { Login } from '../../components/Login'
-import { FormularioRegistro } from '../../components/FormularioRegistro'
+import { Login } from './Login'
 
 export function Home () {
   return (
     <Layout>
       <h1>Home</h1>
       <Login />
-      <FormularioRegistro />
+
     </Layout>
   )
 }

@@ -8,6 +8,6 @@ export default {
         marvel: ['Marvel', 'sans-serif'],
         mplus: ["'M PLUS 1 Code'", 'sans-serif']
       }
-    },
+    }
   }
 }

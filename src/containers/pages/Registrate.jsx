@@ -1,5 +1,5 @@
 import registerImg from '../../assets/Roller_Form.png'
-// import { FormularioRegistro } from '../../components/FormularioRegistro'
+import { FormularioRegistro } from '../../components/FormularioRegistro'
 import { Layout } from '../../hoc/layout/Layout'
 
 export function Registrate () {
@@ -12,6 +12,7 @@ export function Registrate () {
         {/* contenedor del formulario */}
         <div className='w-3/5 h-full flex justify-center items-center'>
           {/* <FormularioRegistro /> */}
+          <FormularioRegistro />
         </div>
       </div>
     </Layout>

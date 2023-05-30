@@ -18,7 +18,7 @@ export function FormularioLogin () {
   return (
     <form className='w-full flex flex-col items-center p-8'>
       <div className='bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500'>
-        <h2 className='text-6xl pb-20 px-8 font-bold text-transparent font-caveat text-center txt-shadow'>
+        <h2 className='text-6xl pb-20 px-8 font-bold text-transparent font-mplus text-center txt-shadow'>
           BIENVENIDO
         </h2>
       </div>
@@ -46,7 +46,7 @@ export function FormularioLogin () {
       </div>
       <button
         onClick={handleFormulario}
-        className='btn-indigo w-4/5 my-5 py-5 bg-gradient-to-r from-blue-500 to-violet-500 text-white font-semibold rounded-lg'
+        className='btn-indigo w-3/5 my-5 py-5 bg-gradient-to-r from-blue-500 to-violet-500 text-white font-semibold rounded-lg'
       >
         INGRESAR
       </button>

@@ -1,5 +1,4 @@
 import React from 'react'
-// import Login from './components/Login'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { Error404 } from './containers/errors/Error404.jsx'

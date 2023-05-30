@@ -1,21 +1,20 @@
 import { useState } from 'react'
 
-export function FormularioLogin () {
+export function FormularioLogin ({ functionSuccess }) {
   const [usuario, setUsuario] = useState('')
   const [password, setPassword] = useState('')
 
   const handleFormulario = (e) => {
     e.preventDefault()
+
+    functionSuccess()
+
     console.log('usuario', usuario)
-
-    const data = {
-      usuario,
-      password
-
-    }
+    console.log('password', password)
   }
 
   return (
+
     <form className='w-full flex flex-col items-center p-8'>
       <div className='bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500'>
         <h2 className='text-6xl pb-20 px-8 font-bold text-transparent font-mplus text-center txt-shadow'>

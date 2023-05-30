@@ -1,9 +1,10 @@
 import React from 'react'
 // import Login from './components/Login'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { Error404 } from './containers/errors/Error404.jsx'
-
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Home } from './containers/pages/Home.jsx'
+import { Login } from './containers/pages/Login.jsx'
 import { Registrate } from './containers/pages/Registrate.jsx'
 
 function App () {
@@ -11,6 +12,8 @@ function App () {
 
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/registrate' element={<Registrate />} />
         <Route path='*' element={<Error404 />} />
       </Routes>

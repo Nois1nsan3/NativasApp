@@ -1,8 +1,8 @@
 import { FormularioLogin } from '../../components/FormularioLogin'
 import { Layout } from '../../hoc/layout/Layout'
-import loginImg from '../assets/Roller_Login.png'
+import loginImg from '../../assets/Roller_Login.png'
 
-export default function Login () {
+export function Login () {
   return (
     <Layout>
       <div className='flex overflow-hidden h-screen w-full'>

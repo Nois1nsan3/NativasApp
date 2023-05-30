@@ -1,11 +1,11 @@
 import { Layout } from '../../hoc/layout/Layout'
-import { Login } from './Login'
+import { NavBar } from '../../components/NavBar'
 
 export function Home () {
   return (
     <Layout>
+      <NavBar />
       <h1>Home</h1>
-      <Login />
 
     </Layout>
   )

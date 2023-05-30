@@ -9,6 +9,5 @@ export default {
         mplus: ["'M PLUS 1 Code'", 'sans-serif']
       }
     },
-    plugins: [require('@tailwindcss/typography')]
   }
 }

@@ -1,18 +1,18 @@
 export function NavBar () {
   return (
-    <nav>
+    <nav className='w-screen h-16 flex justify-between items-center px-4 bg-indigo-600 text-white underline '>
       <div>
         <h3>Nativas</h3>
       </div>
-      <ul>
-        <li>Informaciones</li>
-        <li>Conocenos</li>
+      <ul className='flex gap-6'>
+        <li className='p-4'>Informaciones</li>
+        <li className='p-4'>Conocenos</li>
       </ul>
-      <div>
-        <h3>Iniciar Sesion</h3>
-        <h3>Registrate</h3>
-      </div>
-      iniciar sesion
+      <ul className='flex gap-6'>
+        <li className='p-4'>Iniciar Sesion</li>
+        <li className='p-4'>Registrate</li>
+      </ul>
     </nav>
+
   )
 }

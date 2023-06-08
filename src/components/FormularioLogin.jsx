@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export function FormularioLogin ({ functionSuccess }) {
   const [usuario, setUsuario] = useState('')
@@ -7,10 +8,7 @@ export function FormularioLogin ({ functionSuccess }) {
   const handleFormulario = (e) => {
     e.preventDefault()
 
-    functionSuccess()
-
-    console.log('usuario', usuario)
-    console.log('password', password)
+    functionSuccess(usuario, password)
   }
 
   return (
@@ -39,9 +37,9 @@ export function FormularioLogin ({ functionSuccess }) {
           type='password'
         />
       </div>
-      <div className='flex flex-col font-marvel text-indigo-700 justify-center py-2'>
-        <p>¿No tienes una cuenta ? Registrate!</p>
-        <p>¿Olvidaste tu contraseña? </p>
+      <div className='flex flex-col font-marvel justify-center py-2'>
+        <p>¿No tienes una cuenta ? <Link to='/registrate/'><span className='text-indigo-500'>Registrate!</span></Link></p>
+        <a href='#' className='text-indigo-700'>¿Olvidaste tu contraseña? </a>
       </div>
       <button
         onClick={handleFormulario}

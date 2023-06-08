@@ -2,8 +2,8 @@ export function FormularioRegistro () {
   return (
     <form className='w-2/5 h-full flex flex-col items-center justify-center gap-2 overflow-hidden'>
       {/* contenedor del titulo */}
-      <div className='text-violet-700  font-caveat text-center mb-20 txt-shadow flex flex-col gap-5'>
-        <h1 className='font-bold text-5xl mb-10'>COMIENZA TOTALMENTE GRATIS</h1>
+      <div className='text-violet-700  font-caveat text-center txt-shadow flex flex-col gap-2.5'>
+        <h1 className='font-bold text-5xl'>COMIENZA TOTALMENTE GRATIS</h1>
         <h2 className='text-xl'>
           INGRESA LA SIGUIENTE INFORMACIÓN PARA REGISTRARTE
         </h2>

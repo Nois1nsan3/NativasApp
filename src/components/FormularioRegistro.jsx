@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export function FormularioRegistro () {
   return (
     <form className='w-2/5 h-full flex flex-col items-center justify-center gap-2 overflow-hidden'>
@@ -44,18 +46,27 @@ export function FormularioRegistro () {
       {/* input checkbox */}
       <div className='w-full'>
         <label className='font-mplus font-bold'>
-          <input type='checkbox' required /> Acepto los términos y condiciones
-          del servicio
+          <input type='checkbox' required /> Acepto los términos y condiciones del servicio
         </label>
       </div>
-      {/* boton de registro */}
-      <button
-        className='btn-indigo w-4/5 my-5 py-5 bg-gradient-to-r from-blue-500 to-violet-500 text-white font-semibold rounded-lg'
-        type='submit'
-      >
-        CREAR UNA CUENTA
-      </button>
-    </form>
 
+      {/* container de los botones */}
+      <div className='w-full flex gap-2.5'>
+
+        {/* boton de registro */}
+        <button
+          className='btn-indigo w-1/2 my-5 py-5 bg-gradient-to-r from-blue-500 to-violet-500 text-white font-semibold rounded-lg'
+          type='submit'
+        >
+          CREAR UNA CUENTA
+        </button>
+
+        {/* boton de inicio de sesion */}
+        <Link to='/Login/' className='btn-indigo w-1/2 my-5 py-5 bg-gradient-to-r from-blue-500 to-violet-500 text-white font-semibold rounded-lg text-center'>
+          INICIA SESIÓN
+        </Link>
+
+      </div>
+    </form>
   )
 }

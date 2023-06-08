@@ -6,7 +6,6 @@ import { Home } from './containers/pages/Home.jsx'
 import { Login } from './containers/pages/Login.jsx'
 import { Registrate } from './containers/pages/Registrate.jsx'
 
-
 function App () {
   return (
 

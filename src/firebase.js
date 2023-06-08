@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
+import { getFirestore, collection, getDocs } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyD4uOr7wikkzurdAtHmZdMdCUbd6lGRLjQ',
@@ -12,10 +12,14 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
-const db = getFirestore.firebase()
+const db = getFirestore(app)
 
-db.collection('users').get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data()}`)
-  })
-})
+// get users from firebase
+async function getUsers (db) {
+  const usersCol = collection(db, 'users')
+  const usersSnapshot = await getDocs(usersCol)
+  const usersList = usersSnapshot.docs.map(doc => doc.data())
+  return usersList
+}
+
+getUsers(db)

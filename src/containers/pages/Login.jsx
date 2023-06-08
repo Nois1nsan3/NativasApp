@@ -3,24 +3,30 @@ import { useState } from 'react'
 import { FormularioLogin } from '../../components/FormularioLogin'
 import { Layout } from '../../hoc/layout/Layout'
 import loginImg from '../../assets/Roller_Login.png'
+import { LoginSuccess } from '../../components/LoginSuccess'
 import { app } from '../../firebase'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 
-const auth = getAuth(app)
-
 export function Login () {
-  const [successLog, setSuccessLog] = useState(null)
+  const auth = getAuth(app)
+
+  const [successLog, setSuccessLog] = useState(false)
 
   const handleSuccess = async (usuario, pwd) => {
     await signInWithEmailAndPassword(auth, usuario, pwd)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user
-        setSuccessLog(user)
-        // ...
-      }
-      ).then(() => {
-        console.log(successLog)
+        console.log(user)
+        setSuccessLog(true)
+        setTimeout(() => {
+          window.location.href = '/'
+        }, 3000)
+      })
+      .catch((error) => {
+        const errorCode = error.code
+        const errorMessage = error.message
+        console.log(errorCode, errorMessage)
       })
   }
 
@@ -32,7 +38,12 @@ export function Login () {
         </div>
 
         <div className='w-2/5 flex items-center justify-center'>
-          <FormularioLogin functionSuccess={handleSuccess} />
+
+          {successLog
+            ? (<LoginSuccess />)
+            : (
+              <FormularioLogin functionSuccess={handleSuccess} />
+              )}
         </div>
       </div>
     </Layout>

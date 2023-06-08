@@ -7,7 +7,6 @@ export function FormularioLogin ({ functionSuccess }) {
 
   const handleFormulario = (e) => {
     e.preventDefault()
-
     functionSuccess(usuario, password)
   }
 

@@ -1,8 +1,33 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export function FormularioRegistro () {
+export function FormularioRegistro ({ handleRegistro }) {
+  const [nombre, setNombre] = useState('')
+  const [apellido, setApellido] = useState('')
+  const [correo, setCorreo] = useState('')
+  const [password, setPassword] = useState('')
+  const [terminos, setTerminos] = useState(false)
+
+  const handleForm = (e) => {
+    e.preventDefault()
+
+    const newUser = {
+      nombre,
+      apellido,
+      correo,
+      password,
+      terminos
+    }
+
+    console.log(newUser)
+    handleRegistro(newUser.correo, newUser.password)
+  }
+
   return (
-    <form className='w-2/5 h-full flex flex-col items-center justify-center gap-2 overflow-hidden'>
+    <form
+      onSubmit={handleForm}
+      className='w-2/5 h-full flex flex-col items-center justify-center gap-2 overflow-hidden'
+    >
       {/* contenedor del titulo */}
       <div className='text-violet-700  font-caveat text-center txt-shadow flex flex-col gap-2.5'>
         <h1 className='font-bold text-5xl'>COMIENZA TOTALMENTE GRATIS</h1>
@@ -18,13 +43,15 @@ export function FormularioRegistro () {
             className='w-1/2 font-mplus font-bold rounded-lg border-2 border-violet-600 p-2 '
             type='text'
             placeholder='Nombre'
-            required
+            onChange={(e) => setNombre(e.target.value)}
+            value={nombre}
           />
           <input
             className='w-1/2 font-mplus font-bold rounded-lg border-2 border-violet-600 p-2.5 '
             type='text'
             placeholder='Apellido'
-            required
+            onChange={(e) => setApellido(e.target.value)}
+            value={apellido}
           />
         </div>
         {/* inputs correo y contraseña */}
@@ -33,12 +60,16 @@ export function FormularioRegistro () {
             className='w-full font-mplus font-bold rounded-lg border-2 border-violet-600 p-2.5'
             type='email'
             placeholder='Correo electrónico'
+            onChange={(e) => setCorreo(e.target.value)}
+            value={correo}
             required
           />
           <input
             className='w-full font-mplus font-bold rounded-lg border-2 border-violet-600 p-2.5'
             type='password'
+            onChange={(e) => setPassword(e.target.value)}
             placeholder='Contraseña'
+            value={password}
             required
           />
         </div>
@@ -46,7 +77,12 @@ export function FormularioRegistro () {
       {/* input checkbox */}
       <div className='w-full'>
         <label className='font-mplus font-bold'>
-          <input type='checkbox' required /> Acepto los términos y condiciones del servicio
+          <input
+            type='checkbox'
+            onChange={(e) => setTerminos(e.target.checked)}
+            value={terminos}
+            required
+          /> Acepto los términos y condiciones del servicio
         </label>
       </div>
 

@@ -7,13 +7,10 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore'
 
 export function AdmPage () {
   const db = getFirestore(app)
-  const handleGuardarNoticia = async ({ noticia }) => {
+  const handleGuardarNoticia = async (noticia) => {
     try {
-      const docRef = await addDoc(collection(db, 'users'), {
-        first: 'Ada',
-        last: 'Lovelace',
-        born: 1815
-      })
+      const docRef = await addDoc(collection(db, 'noticias'), noticia)
+      console.log(noticia)
       console.log('Document written with ID: ', docRef.id)
     } catch (e) {
       console.error('Error adding document: ', e)

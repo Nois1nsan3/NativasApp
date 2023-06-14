@@ -48,6 +48,8 @@ export function FormNoticia ({ fnAgregarNoticia }) {
           onChange={(e) => setImagen(e.target.value)}
           value={imagen}
         />
+
+        <button type='submit'>Agregar</button>
       </form>
     </div>
   )

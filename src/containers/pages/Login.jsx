@@ -8,11 +8,11 @@ import { app } from '../../firebase'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 
 export function Login () {
-  const auth = getAuth(app)
-
   const [successLog, setSuccessLog] = useState(false)
 
   const handleSuccess = async (usuario, pwd) => {
+    const auth = getAuth(app)
+
     await signInWithEmailAndPassword(auth, usuario, pwd)
       .then((userCredential) => {
         // Signed in

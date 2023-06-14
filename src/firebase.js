@@ -15,7 +15,7 @@ import { initializeApp } from 'firebase/app'
 //   measurementId: 'G-G1VENGZ8BB'
 // }
 
-const firebaseConfigNativasCorreo = {
+const firebaseConfig = {
   apiKey: 'AIzaSyDL3G82-wceLOB7rwqdQyNzvx5QRrEja18',
   authDomain: 'nativasapp-a44ab.firebaseapp.com',
   projectId: 'nativasapp-a44ab',
@@ -24,6 +24,5 @@ const firebaseConfigNativasCorreo = {
   appId: '1:261258976552:web:c4f36516d3c577e43e041d',
   measurementId: 'G-PCPS4J37VY'
 }
-
 // Initialize Firebase com el correo de nativas
-export const app = initializeApp(firebaseConfigNativasCorreo)
+export const app = initializeApp(firebaseConfig)

@@ -5,6 +5,7 @@ import { Error404 } from './containers/errors/Error404.jsx'
 import { Home } from './containers/pages/Home.jsx'
 import { Login } from './containers/pages/Login.jsx'
 import { Registrate } from './containers/pages/Registrate.jsx'
+import { AdmPage } from './containers/pages/AdmPage.jsx'
 
 function App () {
   return (
@@ -14,6 +15,7 @@ function App () {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/registrate' element={<Registrate />} />
+        <Route path='/adm' element={<AdmPage />} />
         <Route path='*' element={<Error404 />} />
       </Routes>
     </BrowserRouter>

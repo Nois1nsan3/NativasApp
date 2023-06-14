@@ -4,15 +4,17 @@ import { Layout } from '../../hoc/layout/Layout'
 import { app } from '../../firebase'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 
+const auth = getAuth(app)
 export function Registrate () {
   const handleRegistro = async (correo, password) => {
-    const auth = getAuth(app)
-
     await createUserWithEmailAndPassword(auth, correo, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user
         console.log(user)
+      })
+      .then(() => {
+        window.location.href = '/login'
       })
       .catch((error) => {
         const errorCode = error.code

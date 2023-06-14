@@ -5,15 +5,25 @@ import { initializeApp } from 'firebase/app'
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: 'AIzaSyCDG11gw1TDENc6AZauKT_7PP965jvu-3M',
-  authDomain: 'testlogin-55c6c.firebaseapp.com',
-  projectId: 'testlogin-55c6c',
-  storageBucket: 'testlogin-55c6c.appspot.com',
-  messagingSenderId: '570383210624',
-  appId: '1:570383210624:web:12b1c2ae1647a626d06e65',
-  measurementId: 'G-G1VENGZ8BB'
+// const firebaseConfigPrimeraPrueba = {
+//   apiKey: 'AIzaSyCDG11gw1TDENc6AZauKT_7PP965jvu-3M',
+//   authDomain: 'testlogin-55c6c.firebaseapp.com',
+//   projectId: 'testlogin-55c6c',
+//   storageBucket: 'testlogin-55c6c.appspot.com',
+//   messagingSenderId: '570383210624',
+//   appId: '1:570383210624:web:12b1c2ae1647a626d06e65',
+//   measurementId: 'G-G1VENGZ8BB'
+// }
+
+const firebaseConfigNativasCorreo = {
+  apiKey: 'AIzaSyDL3G82-wceLOB7rwqdQyNzvx5QRrEja18',
+  authDomain: 'nativasapp-a44ab.firebaseapp.com',
+  projectId: 'nativasapp-a44ab',
+  storageBucket: 'nativasapp-a44ab.appspot.com',
+  messagingSenderId: '261258976552',
+  appId: '1:261258976552:web:c4f36516d3c577e43e041d',
+  measurementId: 'G-PCPS4J37VY'
 }
 
-// Initialize Firebase
-export const app = initializeApp(firebaseConfig)
+// Initialize Firebase com el correo de nativas
+export const app = initializeApp(firebaseConfigNativasCorreo)

@@ -1,12 +1,25 @@
-// import Login from './components/Login'
-import RegisterScreen from "./components/RegisterScreen";
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-function App() {
-    return (
-        <div>
-            <RegisterScreen />
-        </div>
-    );
+import { Error404 } from './containers/errors/Error404.jsx'
+import { Home } from './containers/pages/Home.jsx'
+import { Login } from './containers/pages/Login.jsx'
+import { Registrate } from './containers/pages/Registrate.jsx'
+import { AdmPage } from './containers/pages/AdmPage.jsx'
+
+function App () {
+  return (
+
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/registrate' element={<Registrate />} />
+        <Route path='/adm' element={<AdmPage />} />
+        <Route path='*' element={<Error404 />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App

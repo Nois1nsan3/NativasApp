@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.filtro {
+  filter: drop-shadow(54px 4px 31px rgba(0, 0, 0, 0.25));
+}
+
+.txt-shadow {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-indigo {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-indigo:hover {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(
+    180deg,
+    rgba(53, 24, 170, 0.8) 10.42%,
+    rgba(150, 24, 170, 0.8) 100%
+  );
+}
+
+li {
+  cursor: pointer;
+}

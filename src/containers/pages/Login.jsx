@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { FormularioLogin } from '../../components/FormularioLogin'
 import { Layout } from '../../hoc/layout/Layout'
+import { NavBar } from '../../components/NavBar'
 import loginImg from '../../assets/Roller_Login.png'
 import { Mensaje } from '../../components/Mensaje'
 import { db, app } from '../../firebase'
@@ -47,7 +48,10 @@ export function Login () {
 
   return (
     <Layout>
+      <NavBar />
+
       <div className='flex overflow-hidden h-screen w-screen'>
+
         <div className='filtro w-2/3 h-auto'>
           <img className='w-full h-full object-cover' src={loginImg} alt='' />
         </div>

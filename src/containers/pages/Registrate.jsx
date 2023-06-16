@@ -1,27 +1,51 @@
-import registerImg from '../../assets/Roller_Form.png'
+import React, { useState } from 'react'
 import { FormularioRegistro } from '../../components/FormularioRegistro'
+import registerImg from '../../assets/Roller_Form.png'
+import { Mensaje } from '../../components/Mensaje'
 import { Layout } from '../../hoc/layout/Layout'
-import { app } from '../../firebase'
+import { app, db } from '../../firebase'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { addDoc, collection } from 'firebase/firestore'
 
-const auth = getAuth(app)
 export function Registrate () {
-  const handleRegistro = async (correo, password) => {
-    await createUserWithEmailAndPassword(auth, correo, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user
-        console.log(user)
-      })
-      .then(() => {
-        window.location.href = '/login'
-      })
-      .catch((error) => {
-        const errorCode = error.code
-        const errorMessage = error.message
-        console.log(errorCode)
-        console.log(errorMessage)
-      })
+  const [successReg, setSuccessReg] = useState(false)
+  const auth = getAuth(app)
+
+  const agregarUsuario = async (usuario) => {
+    try {
+      const docRef = await addDoc(collection(db, 'users'), usuario)
+      console.log('Document written with ID: ', docRef.id)
+    } catch (e) {
+      console.error('Error adding document: ', e)
+    }
+  }
+
+  const handleRegistro = async ({ nombre, apellido, correo, password, terminos }) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, correo, password)
+      const user = userCredential.user
+
+      if (user) {
+        const newUser = {
+          nombre,
+          apellido,
+          correo,
+          terminos
+        }
+
+        await agregarUsuario(newUser)
+        console.log('Usuario agregado')
+        setSuccessReg(true)
+        setTimeout(() => {
+          window.location.href = '/login'
+        }, 3000)
+      }
+    } catch (error) {
+      const errorCode = error.code
+      const errorMessage = error.message
+      console.log(errorCode)
+      console.log(errorMessage)
+    }
   }
 
   return (
@@ -32,8 +56,13 @@ export function Registrate () {
         </picture>
         {/* contenedor del formulario */}
         <div className='w-3/5 h-full flex justify-center items-center'>
-          {/* <FormularioRegistro /> */}
-          <FormularioRegistro handleRegistro={handleRegistro} />
+          {successReg
+            ? (
+              <Mensaje mensaje='Registro exitoso' />
+              )
+            : (
+              <FormularioRegistro handleRegistro={handleRegistro} />
+              )}
         </div>
       </div>
     </Layout>

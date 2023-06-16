@@ -19,8 +19,7 @@ export function FormularioRegistro ({ handleRegistro }) {
       terminos
     }
 
-    console.log(newUser)
-    handleRegistro(newUser.correo, newUser.password)
+    handleRegistro(newUser)
   }
 
   return (
@@ -45,6 +44,7 @@ export function FormularioRegistro ({ handleRegistro }) {
             placeholder='Nombre'
             onChange={(e) => setNombre(e.target.value)}
             value={nombre}
+            required
           />
           <input
             className='w-1/2 font-mplus font-bold rounded-lg border-2 border-violet-600 p-2.5 '

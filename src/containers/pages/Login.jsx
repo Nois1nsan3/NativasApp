@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FormularioLogin } from '../../components/FormularioLogin'
 import { Layout } from '../../hoc/layout/Layout'
 import loginImg from '../../assets/Roller_Login.png'
-import { LoginSuccess } from '../../components/LoginSuccess'
+import { Mensaje } from '../../components/Mensaje'
 import { db, app } from '../../firebase'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { collection, query, where, getDocs } from 'firebase/firestore'
@@ -18,21 +18,24 @@ export function Login () {
       .then(async (userCredential) => {
         // Signed in
         const user = userCredential.user
-        console.log(user)
-
         // Verificar si es admin
         const q = query(admins, where('email', '==', usuario))
         const querySnapshot = await getDocs(q)
 
         // mostrar mensaje de exito
-        setSuccessLog(true)
-
-        if (!querySnapshot.empty) {
-          // Es un administrador, redirigir a /adm
-          window.location.href = '/adm'
+        if (user) {
+          setSuccessLog(true)
+          setTimeout(() => {
+            if (!querySnapshot.empty) {
+            // Es un administrador, redirigir a /adm
+              window.location.href = '/adm'
+            } else {
+            // No es un administrador, redirigir a /user
+              window.location.href = '/user'
+            }
+          }, 3000)
         } else {
-          // No es un administrador, redirigir a /user
-          window.location.href = '/user'
+          console.log('No es un usuario')
         }
       })
       .catch((error) => {
@@ -52,7 +55,7 @@ export function Login () {
         <div className='w-2/5 flex items-center justify-center'>
           {successLog
             ? (
-              <LoginSuccess />
+              <Mensaje mensaje='Login Correcto' />
               )
             : (
               <FormularioLogin functionSuccess={handleSuccess} />

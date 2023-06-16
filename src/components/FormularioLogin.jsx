@@ -24,7 +24,8 @@ export function FormularioLogin ({ functionSuccess }) {
           onChange={(e) => setUsuario(e.target.value)}
           className='py-3 font-mplus font-bold rounded-lg border-2 border-blue-700 mt-2 p-2'
           placeholder='HOLA@TUCORREO.CL'
-          type='text'
+          type='email'
+          required
         />
       </div>
       <div className='w-3/5 flex flex-col py-2'>
@@ -34,6 +35,7 @@ export function FormularioLogin ({ functionSuccess }) {
           className='py-3 font-mplus font-bold rounded-lg border-2 border-violet-600 mt-2 p-2'
           placeholder='INGRESA TU CONTRASEÑA'
           type='password'
+          required
         />
       </div>
       <div className='flex flex-col font-marvel justify-center py-2'>

@@ -2,11 +2,10 @@ import { Layout } from '../../hoc/layout/Layout'
 import { NavBar } from '../../components/NavBar'
 import { Footer } from '../../components/Footer'
 import { FormNoticia } from '../../components/FormNoticia'
-import { app } from '../../firebase'
-import { getFirestore, collection, addDoc } from 'firebase/firestore'
+import { db } from '../../firebase'
+import { collection, addDoc } from 'firebase/firestore'
 
 export function AdmPage () {
-  const db = getFirestore(app)
   const handleGuardarNoticia = async (noticia) => {
     try {
       const docRef = await addDoc(collection(db, 'noticias'), noticia)

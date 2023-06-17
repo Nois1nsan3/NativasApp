@@ -28,10 +28,10 @@ export function Login () {
           setSuccessLog(true)
           setTimeout(() => {
             if (!querySnapshot.empty) {
-            // Es un administrador, redirigir a /adm
+              // Es un administrador, redirigir a /adm
               window.location.href = '/adm'
             } else {
-            // No es un administrador, redirigir a /user
+              // No es un administrador, redirigir a /user
               window.location.href = '/user'
             }
           }, 3000)

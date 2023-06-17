@@ -12,12 +12,19 @@ export function FormularioRecuperar ({ handleRecuperar }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Correo electrónico:
-        <input type='email' value={email} onChange={handleEmailChange} />
-      </label>
-      <button type='submit'>Enviar</button>
+    <form onSubmit={handleSubmit} className='flex justify-center items-center'>
+      <div className='bg-gray-100 p-4 rounded-md'>
+        <input
+          type='email'
+          value={email}
+          onChange={handleEmailChange}
+          className='mb-2'
+          placeholder='Correo electrónico'
+        />
+        <button type='submit' className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+          Enviar
+        </button>
+      </div>
     </form>
   )
 }

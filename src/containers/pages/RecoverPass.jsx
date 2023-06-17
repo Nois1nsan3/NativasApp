@@ -20,12 +20,18 @@ export function RecoverPass () {
   }
 
   return (
-    <div>
+    <>
       <NavBar />
-      <h2>Recuperar contraseña</h2>
-      {message !== ''
-        ? (<FormularioRecuperar handleRecuperar={handleRecuperar} />)
-        : (<p>{message}</p>)}
-    </div>
+      <div className='container mx-auto py-8 flex flex-col items-center'>
+        <h2 className='text-2xl font-bold mb-4'>Recuperar contraseña</h2>
+        {message === ''
+          ? (
+            <FormularioRecuperar handleRecuperar={handleRecuperar} />
+            )
+          : (
+            <p>{message}</p>
+            )}
+      </div>
+    </>
   )
 }

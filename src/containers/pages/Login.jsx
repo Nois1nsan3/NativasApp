@@ -8,7 +8,8 @@ import { db, app } from '../../firebase'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { collection, query, where, getDocs } from 'firebase/firestore'
 
-export function Login () {
+
+export function Login() {
   const admins = collection(db, 'admins')
 
   const auth = getAuth(app)
@@ -28,10 +29,10 @@ export function Login () {
           setSuccessLog(true)
           setTimeout(() => {
             if (!querySnapshot.empty) {
-            // Es un administrador, redirigir a /adm
+              // Es un administrador, redirigir a /adm
               window.location.href = '/adm'
             } else {
-            // No es un administrador, redirigir a /user
+              // No es un administrador, redirigir a /user
               window.location.href = '/user'
             }
           }, 3000)
@@ -60,10 +61,10 @@ export function Login () {
           {successLog
             ? (
               <Mensaje mensaje='Login Correcto' />
-              )
+            )
             : (
               <FormularioLogin functionSuccess={handleSuccess} />
-              )}
+            )}
         </div>
       </div>
     </Layout>

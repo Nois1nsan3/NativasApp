@@ -25,7 +25,7 @@ const RecoverPass = () => {
       <h2>Recuperar contraseña</h2>
       {message !== ''
         ? (<FormularioRecuperar handleRecuperar={handleRecuperar} />)
-        : (message && <p>{message}</p>)}
+        : (<p>{message}</p>)}
     </div>
   )
 }

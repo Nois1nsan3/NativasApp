@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "standard --fixq"
+    "lint": "standard --fix"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.9",

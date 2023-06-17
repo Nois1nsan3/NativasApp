@@ -3,7 +3,7 @@ import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
 import { NavBar } from '../../components/NavBar'
 import { FormularioRecuperar } from '../../components/FormularioRecuperar'
 
-const RecoverPass = () => {
+export function RecoverPass () {
   const [message, setMessage] = useState('')
 
   const handleRecuperar = (email) => {
@@ -29,5 +29,3 @@ const RecoverPass = () => {
     </div>
   )
 }
-
-export default RecoverPass

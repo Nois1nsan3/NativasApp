@@ -14,7 +14,7 @@ const RecoverPass = () => {
       }
       )
       .catch((error) => {
-        setMessage('Ha ocurrido un error. Inténtelo nuevamente.')
+        setMessage(`Ha ocurrido un error. Inténtelo nuevamente. ${error}`)
       }
       )
   }

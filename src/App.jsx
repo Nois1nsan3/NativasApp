@@ -6,10 +6,9 @@ import { Home } from './containers/pages/Home.jsx'
 import { Login } from './containers/pages/Login.jsx'
 import { Registrate } from './containers/pages/Registrate.jsx'
 import { AdmPage } from './containers/pages/AdmPage.jsx'
-import RecoverPass from './components/RecoverPass.jsx'
+import { RecoverPass } from './containers/pages/RecoverPass.jsx'
 
-
-function App() {
+function App () {
   return (
 
     <BrowserRouter>

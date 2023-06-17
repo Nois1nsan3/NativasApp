@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export function FormularioLogin({ functionSuccess }) {
+export function FormularioLogin ({ functionSuccess }) {
   const [usuario, setUsuario] = useState('')
   const [password, setPassword] = useState('')
 

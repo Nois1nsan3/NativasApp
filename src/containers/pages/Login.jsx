@@ -8,8 +8,7 @@ import { db, app } from '../../firebase'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { collection, query, where, getDocs } from 'firebase/firestore'
 
-
-export function Login() {
+export function Login () {
   const admins = collection(db, 'admins')
 
   const auth = getAuth(app)
@@ -61,10 +60,10 @@ export function Login() {
           {successLog
             ? (
               <Mensaje mensaje='Login Correcto' />
-            )
+              )
             : (
               <FormularioLogin functionSuccess={handleSuccess} />
-            )}
+              )}
         </div>
       </div>
     </Layout>

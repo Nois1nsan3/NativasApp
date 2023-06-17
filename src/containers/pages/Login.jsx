@@ -48,22 +48,24 @@ export function Login () {
 
   return (
     <Layout>
-      <NavBar />
+      <div className='h-auto w-full overflow-hidden'>
+        <NavBar />
 
-      <div className='flex overflow-hidden h-screen w-screen'>
+        <div className='flex overflow-hidden h-screen w-screen'>
 
-        <div className='filtro w-2/3 h-auto'>
-          <img className='w-full h-full object-cover' src={loginImg} alt='' />
-        </div>
+          <div className='filtro w-2/3 h-auto'>
+            <img className='w-full h-full object-cover' src={loginImg} alt='' />
+          </div>
 
-        <div className='w-2/5 flex items-center justify-center'>
-          {successLog
-            ? (
-              <Mensaje mensaje='Login Correcto' />
-              )
-            : (
-              <FormularioLogin functionSuccess={handleSuccess} />
-              )}
+          <div className='w-2/5 flex items-center justify-center'>
+            {successLog
+              ? (
+                <Mensaje mensaje='Login Correcto' />
+                )
+              : (
+                <FormularioLogin functionSuccess={handleSuccess} />
+                )}
+          </div>
         </div>
       </div>
     </Layout>

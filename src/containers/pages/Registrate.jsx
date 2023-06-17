@@ -52,7 +52,6 @@ export function Registrate () {
   return (
     <Layout>
       <div className='h-screen overflow-hidden'>
-
         <NavBar />
         <div className='flex h-auto w-full overflow-hidden'>
           <picture className='w-2/5 h-full filtro'>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Error404 } from './containers/errors/error404.jsx'
+import { Error404 } from './containers/errors/Errorr404.jsx'
 import { Home } from './containers/pages/Home.jsx'
 import { Login } from './containers/pages/Login.jsx'
 import { Registrate } from './containers/pages/Registrate.jsx'

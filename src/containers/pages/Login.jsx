@@ -1,17 +1,20 @@
 import { useState } from 'react'
 import { FormularioLogin } from '../../components/FormularioLogin'
 import { Layout } from '../../hoc/layout/Layout'
+import { NavBar } from '../../components/NavBar'
 import loginImg from '../../assets/Roller_Login.png'
 import { Mensaje } from '../../components/Mensaje'
 import { db, app } from '../../firebase'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { collection, query, where, getDocs } from 'firebase/firestore'
+// import { Redirect } from 'react-router-dom'
 
 export function Login () {
   const admins = collection(db, 'admins')
 
   const auth = getAuth(app)
   const [successLog, setSuccessLog] = useState(false)
+  // const [redirectToLogin, setRedirectToLogin] = useState(false)
 
   const handleSuccess = async (usuario, pwd) => {
     await signInWithEmailAndPassword(auth, usuario, pwd)
@@ -27,10 +30,10 @@ export function Login () {
           setSuccessLog(true)
           setTimeout(() => {
             if (!querySnapshot.empty) {
-            // Es un administrador, redirigir a /adm
-              window.location.href = '/adm'
+              // Es un administrador, redirigir a /adm
+              // setRedirectToLogin(true)
             } else {
-            // No es un administrador, redirigir a /user
+              // No es un administrador, redirigir a /user
               window.location.href = '/user'
             }
           }, 3000)
@@ -45,21 +48,29 @@ export function Login () {
       })
   }
 
+  // if (redirectToLogin) {
+  //   return <Redirect to='/login' />
+  // }
+
   return (
     <Layout>
-      <div className='flex overflow-hidden h-screen w-screen'>
-        <div className='filtro w-2/3 h-auto'>
-          <img className='w-full h-full object-cover' src={loginImg} alt='' />
-        </div>
+      <div className='h-auto w-full overflow-hidden'>
+        <NavBar />
 
-        <div className='w-2/5 flex items-center justify-center'>
-          {successLog
-            ? (
-              <Mensaje mensaje='Login Correcto' />
-              )
-            : (
-              <FormularioLogin functionSuccess={handleSuccess} />
-              )}
+        <div className='flex overflow-hidden h-screen w-screen'>
+          <div className='filtro w-2/3 h-auto'>
+            <img className='w-full h-full object-cover' src={loginImg} alt='' />
+          </div>
+
+          <div className='w-2/5 flex items-center justify-center'>
+            {successLog
+              ? (
+                <Mensaje mensaje='Login Correcto' />
+                )
+              : (
+                <FormularioLogin functionSuccess={handleSuccess} />
+                )}
+          </div>
         </div>
       </div>
     </Layout>

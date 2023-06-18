@@ -40,7 +40,7 @@ export function FormularioLogin ({ functionSuccess }) {
       </div>
       <div className='flex flex-col font-marvel justify-center py-2'>
         <p>¿No tienes una cuenta ? <Link to='/registrate/'><span className='text-indigo-500'>Registrate!</span></Link></p>
-        <a href='#' className='text-indigo-700'>¿Olvidaste tu contraseña? </a>
+        <p>¿Olvidaste tu contraseña ? <Link to='/recuperar-contraseña/'><span className='text-indigo-500'>Recuperar!</span></Link></p>
       </div>
       <button
         onClick={handleFormulario}

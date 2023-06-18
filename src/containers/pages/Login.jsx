@@ -14,7 +14,6 @@ export function Login () {
   const navigate = useNavigate()
   const auth = getAuth(app)
   const [successLog, setSuccessLog] = useState(false)
-  // const [redirectToLogin, setRedirectToLogin] = useState(false)
 
   const handleSuccess = async (usuario, pwd) => {
     await signInWithEmailAndPassword(auth, usuario, pwd)
@@ -31,7 +30,6 @@ export function Login () {
           setTimeout(() => {
             if (!querySnapshot.empty) {
               // Es un administrador, redirigir a /adm
-              // setRedirectToLogin(true)
               navigate('/adm')
             } else {
               // No es un administrador, redirigir a /user

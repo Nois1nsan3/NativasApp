@@ -1,7 +1,6 @@
-import React from 'react'
-import { FormularioSolicitud } from './FormularioSolicitud'
+import { FormularioSolicitud } from '../../components/FormularioSolicitud.jsx'
 
-const SolicitudPage = () => {
+export function SolicitudPage () {
   const handleSolicitud = (contacto, explicacion) => {
     console.log('Solicitud recibida:', contacto, explicacion)
   }
@@ -13,5 +12,3 @@ const SolicitudPage = () => {
     </div>
   )
 }
-
-export default SolicitudPage

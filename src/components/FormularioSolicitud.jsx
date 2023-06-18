@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import firebase from 'firebase/app'
+import { db } from '../firebase'
 
-export const FormularioSolicitud = ({ handleSolicitud }) => {
+export function FormularioSolicitud ({ handleSolicitud }) {
   const [contacto, setContacto] = useState('')
   const [explicacion, setExplicacion] = useState('')
-  const db = firebase.firestore()
 
   const handleContactoChange = (e) => {
     setContacto(e.target.value)

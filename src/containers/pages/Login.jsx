@@ -37,7 +37,7 @@ export function Login () {
               // No es un administrador, redirigir a /user
               navigate('/user')
             }
-          }, 3000)
+          }, 1500)
         } else {
           console.log('No es un usuario')
         }
@@ -48,10 +48,6 @@ export function Login () {
         console.log(errorCode, errorMessage)
       })
   }
-
-  // if (redirectToLogin) {
-  //   return <Redirect to='/login' />
-  // }
 
   return (
     <Layout>

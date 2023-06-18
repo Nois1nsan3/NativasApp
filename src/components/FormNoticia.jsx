@@ -21,7 +21,7 @@ export function FormNoticia ({ fnAgregarNoticia }) {
 
     <div>
       <form onSubmit={handleForm}>
-        <label for='titulo'>Titulo</label>
+        <label htmlFor='titulo'>Titulo</label>
         <input
           type='text'
           id='titulo'
@@ -30,7 +30,7 @@ export function FormNoticia ({ fnAgregarNoticia }) {
           onChange={(e) => setTitulo(e.target.value)}
           value={titulo}
         />
-        <label for='descripcion'>Descripcion</label>
+        <label htmlFor='descripcion'>Descripcion</label>
         <input
           type='text'
           id='descripcion'
@@ -39,7 +39,7 @@ export function FormNoticia ({ fnAgregarNoticia }) {
           onChange={(e) => setDescripcion(e.target.value)}
           value={descripcion}
         />
-        <label for='imagen'>Imagen</label>
+        <label htmlFor='imagen'>Imagen</label>
         <input
           type='text'
           id='imagen'

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { FormularioLogin } from '../../components/FormularioLogin'
 import { Layout } from '../../hoc/layout/Layout'
 import { NavBar } from '../../components/NavBar'
@@ -14,7 +14,6 @@ export function Login () {
   const navigate = useNavigate()
   const auth = getAuth(app)
   const [successLog, setSuccessLog] = useState(false)
-  // const [redirectToLogin, setRedirectToLogin] = useState(false)
 
   const handleSuccess = async (usuario, pwd) => {
     await signInWithEmailAndPassword(auth, usuario, pwd)
@@ -31,7 +30,6 @@ export function Login () {
           setTimeout(() => {
             if (!querySnapshot.empty) {
               // Es un administrador, redirigir a /adm
-              // setRedirectToLogin(true)
               navigate('/adm')
             } else {
               // No es un administrador, redirigir a /user
@@ -51,15 +49,15 @@ export function Login () {
 
   return (
     <Layout>
-      <div className='h-auto w-full overflow-hidden'>
+      <div className='h-screen w-full overflow-hidden '>
         <NavBar />
 
-        <div className='flex overflow-hidden h-screen w-screen'>
-          <div className='filtro w-2/3 h-auto'>
-            <img className='w-full h-full object-cover' src={loginImg} alt='' />
-          </div>
+        <div className='w-full h-screen md:flex'>
+          <picture className='w-3/6 filtro'>
+            <img className='w-full h-full' src={loginImg} alt='' />
+          </picture>
 
-          <div className='w-2/5 flex items-center justify-center'>
+          <div className='absolute top-[20%] left-[25%] sm:left-[30%] md:relative md:left-2 md:top-4 md:w-2/5'>
             {successLog
               ? (
                 <Mensaje mensaje='Login Correcto' />
@@ -68,6 +66,7 @@ export function Login () {
                 <FormularioLogin functionSuccess={handleSuccess} />
                 )}
           </div>
+
         </div>
       </div>
     </Layout>

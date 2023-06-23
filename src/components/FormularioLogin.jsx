@@ -12,14 +12,14 @@ export function FormularioLogin ({ functionSuccess }) {
 
   return (
 
-    <form className='w-full flex flex-col items-center p-8'>
-      <div className='bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500'>
-        <h2 className='text-6xl pb-20 px-8 font-bold text-transparent font-mplus text-center txt-shadow'>
+    <form className='z-10 w-full flex flex-col items-center p-2 bg-[#9b70ff] rounded-lg md:m-[5%]'>
+      <div className=''>
+        <h2 className='text-3xl sm:text-6xl text-white px-8 font-bold text-transparent font-mplus text-center txt-shadow'>
           BIENVENIDO
         </h2>
       </div>
-      <div className='w-3/5 flex flex-col py-2'>
-        <label className='font-mplus text-3xl font-bold'>Usuario</label>
+      <div className='w-[80%] flex flex-col py-2'>
+        <label className='font-mplus text-2xl font-bold'>Usuario</label>
         <input
           onChange={(e) => setUsuario(e.target.value)}
           className='py-3 font-mplus font-bold rounded-lg border-2 border-blue-700 mt-2 p-2'
@@ -28,19 +28,19 @@ export function FormularioLogin ({ functionSuccess }) {
           required
         />
       </div>
-      <div className='w-3/5 flex flex-col py-2'>
-        <label className='font-mplus text-3xl font-bold '>Contraseña</label>
+      <div className='w-[80%] flex flex-col py-2'>
+        <label className='font-mplus text-2xl font-bold '>Contraseña</label>
         <input
           onChange={(e) => setPassword(e.target.value)}
           className='py-3 font-mplus font-bold rounded-lg border-2 border-violet-600 mt-2 p-2'
-          placeholder='INGRESA TU CONTRASEÑA'
+          placeholder='INGRESA SU CONTRASEÑA'
           type='password'
           required
         />
       </div>
       <div className='flex flex-col font-marvel justify-center py-2'>
-        <p>¿No tienes una cuenta ? <Link to='/registrate/'><span className='text-indigo-500'>Registrate!</span></Link></p>
-        <p>¿Olvidaste tu contraseña ? <Link to='/recuperar-contraseña/'><span className='text-indigo-500'>Recuperar!</span></Link></p>
+        <p>¿No tienes una cuenta ? <Link to='/registrate/'><span className='text-white'>Registrate!</span></Link></p>
+        <p>¿Olvidaste tu contraseña ? <Link to='/recuperar/'><span className='text-white'>Recuperar!</span></Link></p>
       </div>
       <button
         onClick={handleFormulario}

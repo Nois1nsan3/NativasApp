@@ -1,4 +1,4 @@
-import Typed from 'react-typed'
+// import Typed from 'react-typed'
 import rollerImage from '../assets/roller.jpg'
 
 export function Hero () {
@@ -18,13 +18,13 @@ export function Hero () {
           <p className='md:text-5xl sm:text-4xl text-xl font-bold'>
             ¡Conviértete en parte de nuestra familia!
           </p>
-          <Typed
+          {/* <Typed
             className='md:text-5xl sm:text-4xl text-xl font-bold pl-2'
             strings={['Patina', 'Gana dinero', 'Diviértete']}
             typeSpeed={120}
             backSpeed={140}
             loop
-          />
+          /> */}
         </div>
         <button
           type='button'

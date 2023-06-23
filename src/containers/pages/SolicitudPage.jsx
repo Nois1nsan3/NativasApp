@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { db } from '../../firebase'
 import { FormularioSolicitud } from '../../components/FormularioSolicitud.jsx'
 import { NavBar } from '../../components/NavBar.jsx'
+import { addDoc, collection, getDocs } from 'firebase/firestore'
 
 export function SolicitudPage () {
   const [solicitudes, setSolicitudes] = useState([])
@@ -9,7 +10,7 @@ export function SolicitudPage () {
   useEffect(() => {
     const fetchSolicitudes = async () => {
       try {
-        const snapshot = await db.collection('solicitudes').get()
+        const snapshot = await getDocs(collection(db, 'solicitudes'))
         const solicitudesData = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
         setSolicitudes(solicitudesData)
       } catch (error) {
@@ -20,24 +21,14 @@ export function SolicitudPage () {
     fetchSolicitudes()
   }, [])
 
-  const handleSolicitud = async (contacto, explicacion) => {
+  const handleSolicitud = async (solicitud) => {
     try {
-      const docRef = await db.collection('solicitudes').add({
-        contacto,
-        explicacion,
-        fecha: new Date().toISOString()
-      })
-
+      const docRef = await addDoc(collection(db, 'solicitudes'), solicitud)
       console.log('Solicitud enviada correctamente. ID:', docRef.id)
-
-      const snapshot = await db.collection('solicitudes').doc(docRef.id).get()
-      const nuevaSolicitud = { id: docRef.id, ...snapshot.data() }
-
-      setSolicitudes((prevSolicitudes) => [nuevaSolicitud, ...prevSolicitudes])
     } catch (error) {
-      console.error('Error al enviar la solicitud:', error)
+      console.error('Error al guardar la solicitud:', error)
       console.log(
-        'Ocurrió un error al enviar la solicitud. Por favor, inténtalo de nuevo más tarde.'
+        'Ocurrió un error al guardar la solicitud. Por favor, inténtalo de nuevo más tarde.'
       )
     }
   }

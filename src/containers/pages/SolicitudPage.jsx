@@ -3,6 +3,7 @@ import { db } from '../../firebase'
 import { FormularioSolicitud } from '../../components/FormularioSolicitud.jsx'
 import { NavBar } from '../../components/NavBar.jsx'
 import { addDoc, collection, getDocs } from 'firebase/firestore'
+import { Footer } from '../../components/Footer'
 
 export function SolicitudPage () {
   const [solicitudes, setSolicitudes] = useState([])
@@ -47,6 +48,7 @@ export function SolicitudPage () {
             </li>
           ))}
         </ul>
+        <Footer />
       </div>
     </>
   )

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Error404 } from '../containers/errors/Error404'
 import { Home } from '../containers/pages/Home.jsx'
 import { Login } from '../containers/pages/Login.jsx'
@@ -7,6 +7,7 @@ import { AdmPage } from '../containers/pages/AdmPage.jsx'
 import { UserPage } from '../containers/pages/UserPage.jsx'
 import { RecoverPass } from '../containers/pages/RecoverPass.jsx'
 import { SolicitudPage } from '../containers/pages/SolicitudPage.jsx'
+import { ProtectorRuta } from './ProtectedRoute'
 
 const AppRouter = () => {
   return (
@@ -22,11 +23,19 @@ const AppRouter = () => {
         />
         <Route
           path='/adm'
-          element={<AdmPage />}
+          element={
+            <ProtectorRuta>
+              <AdmPage />
+            </ProtectorRuta>
+          }
         />
         <Route
           path='/user'
-          element={<UserPage />}
+          element={
+            <ProtectorRuta>
+              <UserPage />
+            </ProtectorRuta>
+          }
         />
         <Route path='*' element={<Error404 />} />
       </Routes>

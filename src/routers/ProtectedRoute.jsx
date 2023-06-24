@@ -1,9 +1,9 @@
-import { UserAuth } from '../context/AuthContext'
+import { userAuth } from '../context/AuthContext'
 import { Navigate } from 'react-router-dom'
 
 export function ProtectorRuta ({ children }) {
-  const { user } = UserAuth()
-  if (user == null) {
+  const { user } = userAuth()
+  if (user === false) {
     return <Navigate to='/' />
   }
   return children

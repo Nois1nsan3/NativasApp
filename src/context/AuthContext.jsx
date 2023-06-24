@@ -1,19 +1,18 @@
 import { useContext, createContext, useEffect, useState } from 'react'
 import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
-import { auth } from '../firebase'
+import { auth } from '../api/firebase'
 
 const AuthContext = createContext()
 
 export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(false)
 
-  const emailSignIn = (email, password) => {
+  const login = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // El usuario ha iniciado sesión correctamente
         const currentUser = userCredential.user
         setUser(currentUser)
-        console.log('Usuario:', currentUser)
       })
       .catch((error) => {
         // Ocurrió un error durante el inicio de sesión
@@ -21,14 +20,17 @@ export const AuthContextProvider = ({ children }) => {
       })
   }
 
-  const logOut = () => {
+  const logout = () => {
     signOut(auth)
   }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser)
-      console.log('Usuario:', currentUser)
+      if (currentUser) {
+        setUser(currentUser)
+      } else {
+        setUser(false)
+      }
     })
 
     return () => {
@@ -37,12 +39,12 @@ export const AuthContextProvider = ({ children }) => {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ emailSignIn, logOut, user }}>
+    <AuthContext.Provider value={{ login, logout, user }}>
       {children}
     </AuthContext.Provider>
   )
 }
 
-export const UserAuth = () => {
+export const userAuth = () => {
   return useContext(AuthContext)
 }

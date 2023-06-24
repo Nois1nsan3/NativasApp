@@ -18,6 +18,6 @@ const firebaseConfig = {
   measurementId: 'G-PCPS4J37VY'
 }
 // Initialize Firebase com el correo de nativas
-export const app = initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 export const db = getFirestore(app)

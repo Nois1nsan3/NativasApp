@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { db } from '../../firebase'
+import { db } from '../../api/firebase'
 import { FormularioSolicitud } from '../../components/FormularioSolicitud.jsx'
 import { NavBar } from '../../components/NavBar.jsx'
 import { addDoc, collection, getDocs } from 'firebase/firestore'

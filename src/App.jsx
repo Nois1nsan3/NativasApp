@@ -4,9 +4,7 @@ import AppRouter from './routers/router'
 function App () {
   return (
     <AuthContextProvider>
-      <div>
-        <AppRouter />
-      </div>
+      <AppRouter />
     </AuthContextProvider>
   )
 }

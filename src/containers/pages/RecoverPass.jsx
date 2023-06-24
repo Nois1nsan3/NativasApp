@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { sendPasswordResetEmail } from 'firebase/auth'
-import { userAuth } from '../../context/AuthContext'
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
 import { NavBar } from '../../components/NavBar'
 import { FormularioRecuperar } from '../../components/FormularioRecuperar'
 
@@ -8,8 +7,8 @@ export function RecoverPass () {
   const [message, setMessage] = useState('')
 
   const handleRecuperar = (email) => {
-    const { user } = userAuth()
-    sendPasswordResetEmail(user, email)
+    const auth = getAuth()
+    sendPasswordResetEmail(auth, email)
       .then(() => {
         setMessage('Se ha enviado un correo electrónico para restablecer la contraseña.')
       }

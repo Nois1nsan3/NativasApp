@@ -1,7 +1,14 @@
 import Typed from 'react-typed'
 import rollerImage from '../assets/roller.jpg'
+import { useNavigate } from 'react-router-dom'
 
 export function Hero () {
+  const navigate = useNavigate()
+
+  const handleUnetenos = () => {
+    navigate('/registrate')
+  }
+
   return (
     <div
       className='text-white txt-shadow bg-cover h-full flex-grow flex flex-col justify-center items-center'
@@ -27,6 +34,7 @@ export function Hero () {
           />
         </div>
         <button
+          onClick={handleUnetenos}
           type='button'
           className='bg-indigo-500 text-black w-[200px] rounded-md font-medium my-6 mx-auto py-3'
         >

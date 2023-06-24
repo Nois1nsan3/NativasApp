@@ -7,6 +7,7 @@ import { db } from '../../api/firebase'
 import { userAuth } from '../../context/AuthContext'
 import { collection, query, where, getDocs } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 export function Login () {
   const admins = collection(db, 'admins')
@@ -29,11 +30,14 @@ export function Login () {
     } catch (error) {
       console.log(error)
     }
+  }
 
+  // Redirigir al usuario si la sesión está activa
+  useEffect(() => {
     if (user) {
       navigate('/user')
     }
-  }
+  }, [user])
 
   return (
     <Layout>
@@ -49,7 +53,6 @@ export function Login () {
             {user
               ? (
                 <Mensaje mensaje='Login Correcto' />
-
                 )
               : (
                 <FormularioLogin functionSuccess={handleLogin} />

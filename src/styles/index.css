@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.dash {
+    width: 100%;
+    height: 100vh;
+    background: #100c3d;
+    overflow: hideen;
+    display: flex;
+}
+
 .filtro {
     filter: drop-shadow(54px 4px 31px rgba(0, 0, 0, 0.25));
 }

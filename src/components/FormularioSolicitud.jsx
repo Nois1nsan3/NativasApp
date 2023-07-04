@@ -6,6 +6,8 @@ export function FormularioSolicitud ({ handleSolicitud }) {
   const [deseaRecibirNoticias, setRecibirNoticias] = useState(false)
   const [fechaNacimiento, setFechaNacimiento] = useState('')
   const [message, setMessage] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState(false)
 
   const handleContactoChange = (e) => {
     setContacto(e.target.value)
@@ -36,9 +38,11 @@ export function FormularioSolicitud ({ handleSolicitud }) {
     console.log('Edad:', edad)
     if (edad < 18) {
       setMessage(false)
+      setError(true)
       return
     } else {
       setMessage(true)
+      setError(false)
     }
 
     const solicitud = {
@@ -49,6 +53,13 @@ export function FormularioSolicitud ({ handleSolicitud }) {
     }
 
     handleSolicitud(solicitud)
+
+    // Reset form
+    setContacto('')
+    setExplicacion('')
+    setRecibirNoticias(false)
+    setFechaNacimiento('')
+    setSuccess(true)
   }
 
   return (
@@ -91,18 +102,18 @@ export function FormularioSolicitud ({ handleSolicitud }) {
             placeholder='Día'
             required
           />
-
         </div>
         <button
           type='submit'
           className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md w-full'
-          disabled={!deseaRecibirNoticias}
         >
           Enviar solicitud
         </button>
         {!message && (
           <p className='text-red-500 mt-2'>Debes ser mayor de 18 años para postular.</p>
         )}
+        {success && <p className='text-green-500 mt-2'>El formulario se ha enviado con éxito.</p>}
+        {error && <p className='text-red-500 mt-2'>No se pudo enviar el formulario. Verifica los datos ingresados.</p>}
       </div>
     </form>
   )

@@ -39,7 +39,7 @@ export function SolicitudPage () {
       <NavBar />
       <div>
         <FormularioSolicitud handleSolicitud={handleSolicitud} />
-        <ul>
+        {/* <ul>
           {solicitudes.map((solicitud) => (
             <li key={solicitud.id}>
               <p>Contacto: {solicitud.contacto}</p>
@@ -47,7 +47,7 @@ export function SolicitudPage () {
               <p>Fecha: {solicitud.fecha}</p>
             </li>
           ))}
-        </ul>
+        </ul> */}
         <Footer />
       </div>
     </>

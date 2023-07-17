@@ -4,6 +4,10 @@ import { auth } from '../api/firebase'
 
 const AuthContext = createContext()
 
+export const useAuth = () => {
+  return useContext(AuthContext)
+}
+
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(false)
 
@@ -43,8 +47,4 @@ export const AuthContextProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   )
-}
-
-export const userAuth = () => {
-  return useContext(AuthContext)
 }

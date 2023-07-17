@@ -4,7 +4,7 @@ import { NavBar } from '../../components/NavBar'
 import loginImg from '../../assets/Roller_Login.png'
 import { Mensaje } from '../../components/Mensaje'
 import { db } from '../../api/firebase'
-import { userAuth } from '../../context/AuthContext'
+import { useAuth } from '../../context/AuthContext'
 import { collection, query, where, getDocs } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
@@ -12,7 +12,7 @@ import { useEffect } from 'react'
 export function Login () {
   const admins = collection(db, 'admins')
   const navigate = useNavigate()
-  const { user, login } = userAuth()
+  const { user, login } = useAuth()
 
   const handleLogin = async ({ usuario, password }) => {
     try {

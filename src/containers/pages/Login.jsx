@@ -49,7 +49,7 @@ export function Login () {
             <img className='w-full h-full' src={loginImg} alt='' />
           </picture>
 
-          <div className='absolute top-[20%] left-[25%] sm:left-[30%] md:relative md:left-2 md:top-4 md:w-2/5'>
+          <div className='md:mt-20 absolute top-[20%] left-[25%] sm:left-[30%] md:relative md:left-2 md:top-4 md:w-2/5'>
             {user
               ? (
                 <Mensaje mensaje='Login Correcto' />

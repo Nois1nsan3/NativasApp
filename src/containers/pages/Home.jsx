@@ -9,7 +9,7 @@ export function Home () {
     <Layout>
       <div className='bg-black h-screen flex flex-col'>
         <NavBar />
-        <div className='h-screen flex-grow'>
+        <div className='h-screen'>
           <Hero />
           <Equipo />
           <Footer />

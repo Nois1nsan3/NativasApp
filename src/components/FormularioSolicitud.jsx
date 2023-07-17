@@ -63,7 +63,7 @@ export function FormularioSolicitud ({ handleSolicitud }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='flex justify-center items-center my-10'>
+    <form onSubmit={handleSubmit} className='flex justify-center items-center md:mt-28'>
       <div className='bg-gray-100 p-4 rounded-md'>
         <h2 className='text-xl font-bold mb-4 text-center'>Sé parte de nosotros!</h2>
         <input

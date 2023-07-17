@@ -12,6 +12,8 @@ import {
 
 import './menu.css'
 import Logo from '../../assets/img/logouser.png'
+// import { FormularioSolicitud } from '../FormularioSolicitud'
+import { SolicitudPage } from '../../containers/pages/SolicitudPage'
 
 function Menu () {
   const { logout } = useAuth()
@@ -40,22 +42,29 @@ function Menu () {
   }
 
   return (
-    <menu>
-      <img src={Logo} alt='' />
+    <>
+      <menu>
+        <img src={Logo} alt='' />
 
-      <ul id='mainMenu'>
-        <Icon icon={<FaDelicious />} />
-        {/* <Icon icon={<FaShoppingCart />} />
+        <ul id='mainMenu'>
+          <Icon icon={<FaDelicious />} />
+          {/* <Icon icon={<FaShoppingCart />} />
         <Icon icon={<FaWallet />} /> */}
-        <Icon icon={<FaChartLine />} />
-        <Icon icon={<FaRegClock />} />
-      </ul>
+          <Icon icon={<FaChartLine />} />
+          <Icon icon={<FaRegClock />} />
+        </ul>
 
-      <ul className='lastMenu'>
-        <Icon icon={<FaCog />} />
-        <Icon icon={<FaSignOutAlt />} onClick={handleLogout} />
-      </ul>
-    </menu>
+        <ul className='lastMenu'>
+          <Icon icon={<FaCog />} />
+          <Icon icon={<FaSignOutAlt />} onClick={handleLogout} />
+        </ul>
+      </menu>
+
+      <div className='solicitud'>
+        {/* <FormularioSolicitud /> */}
+        <SolicitudPage />
+      </div>
+    </>
   )
 }
 

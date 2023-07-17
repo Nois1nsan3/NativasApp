@@ -1,5 +1,6 @@
 // import { userAuth } from '../../context/AuthContext'
 import Menu from '../../components/dashboard/Menu'
+// import { NavBar } from '../../components/NavBar'
 // import Container from '../../components/dashboard/Container'
 
 export function UserPage () {
@@ -10,6 +11,7 @@ export function UserPage () {
   // }
   return (
     <div className='dash'>
+      {/* <NavBar /> */}
       <Menu />
       {/* <Container /> */}
 
